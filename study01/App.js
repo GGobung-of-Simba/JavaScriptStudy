@@ -75,3 +75,59 @@ for(let j = 0; j<5; j++){
     console.log(j);
 }
 
+// 자바스크립트에서 말하는 데이터를 다룰 때는 json이라는 오브젝트 담아서 쓴다.
+// 자바스크립트에서 다루는 데이터는 제이슨 데이터다 제이슨은 {키:밸류 형식의 데이터} 요거다
+// {키:밸류 형식의 그냥 객체랑 구분 잘하자}
+// data => json
+
+const test = {
+    a1:a,
+    b1:2,
+    c1:"삼"
+}
+
+console.log( test.a )
+var {b1} = test;
+console.log(b1);
+var {b1, c1} = test;
+console.log(b1, c1);
+var {b1:bb} = test;
+console.log(bb);
+// alias처럼 사용하기
+
+const test2 = test;
+console.log(test, test2);
+const test3 = {...test};
+console.log(test, test2, test3);
+test2.b1 = 5;
+console.log(test, test2);
+console.log(test, test2, test3);
+// test1, test2, test3의 출력 값을 잘 비교해보자
+// 깊은 복사, 얕은 복사의 차이를 잘 알자
+const test4 = {...test, ...test2, ...test3};
+console.log(test4);
+////////////////////////////////////////////
+
+var testt = {
+    a1:a,
+    b1:2,
+    c1:"삼"
+}
+var testt2 = testt;
+var testt3 = {...testt};
+var testt4 = {...testt, ...testt2, ...testt3};
+
+
+function fn_1() {
+    console.log("출력해줄게");
+}
+
+function fn_2(f) {
+    f();
+}
+
+fn_2(fn_1);
+
+
+fn_2(function (){console.log("난 출력하는걸~")});
+fn_2(()=>console.log("점심시간이다"));

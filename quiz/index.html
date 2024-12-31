@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDEX</title>
+    <script src="/quiz/index.js"></script>
+    <script type = "module" src = "/quiz/grid.js"></script> 
+
+    <style>
+    *{box-sizing: border-box;}
+    body {margin: 0;}
+    #box {width: calc(50px*10); display: grid; grid-template-columns:  auto auto auto auto auto auto auto auto auto auto;}
+    #box div {height: 50px; border: 1px solid #000;}
+    #box div:nth-child(3) {background-color: #000;}
+
+
+    </style>
+
+    <script>
+        window.onload = function() {
+            var html = "";
+            for(var i = 0; i < 100; i++) {
+                html += "<div></div>";
+            }
+            document.querySelector("#box").innerHTML = html;
+    }
+    </script>
+
+</head>
+<body>
+       
+    <input type="number" id="a" placeholder="단 입력 1~9"/>
+    <button type="button" onclick="구구단()">구구!</button>
+    <p>결과:<span id="result"></span></p>
+    <hr>
+    <div id="box"></div>
+
+       
+</body>
+</html>
